@@ -13,4 +13,8 @@ router.post('/photographs', isAuthenticated, uploadPhotograph.single('file'), ad
 router.put('/photographs/:id', isAuthenticated, adminController.updatePhotograph);
 router.delete('/photographs/:id', isAuthenticated, adminController.deletePhotograph);
 
+router.post('/achievements', isAuthenticated, adminController.createAchievement);
+router.put('/achievements/:id', isAuthenticated, adminController.updateAchievement);
+router.delete('/achievements/:id', isAuthenticated, adminController.deleteAchievement);
+
 module.exports = router;

@@ -8,6 +8,7 @@ const multer = require('multer');
 
 const paintingsData = path.join(__dirname, '..', 'data', 'paintings.json');
 const photographsData = path.join(__dirname, '..', 'data', 'photographs.json');
+const achievementsData = path.join(__dirname, '..', 'data', 'achievements.json');
 
 const paintingsStorage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -255,6 +256,81 @@ const deletePhotograph = (req, res) => {
     });
 };
 
+const createAchievement = (req, res) => {
+    readData(achievementsData, (err, achievements) => {
+        if (err) {
+            res.status(500).json({ message: 'Error reading data' });
+        } else {
+            const newAchievement = new Achievement(
+                getNextId(achievements),
+                req.body.title,
+                req.body.description,
+                req.body.type,
+            );
+            achievements.push(newAchievement);
+            writeData(achievementsData, achievements, (err) => {
+                if (err) {
+                    res.status(500).json({ message: 'Error writing data' });
+                } else {
+                    res.status(201).json(newAchievement);
+                }
+            });
+        }
+    });
+};
+
+const updateAchievement = (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    readData(achievementsData, (err, achievements) => {
+        if (err) {
+            res.status(500).json({ message: 'Error reading data' });
+        } else {
+            const index = achievements.findIndex(achievement => achievement.id === id);
+            if (index >= 0) {
+                const updatedAchievement = new Achievement(
+                    id,
+                    req.body.title,
+                    req.body.description,
+                    req.body.type,
+                );
+                achievements[index] = updatedAchievement;
+                writeData(achievementsData, achievements, (err) => {
+                    if (err) {
+                        res.status(500).json({ message: 'Error writing data' });
+                    } else {
+                        res.status(200).json(updatedAchievement);
+                    }
+                });
+            } else {
+                res.status(404).json({ message: 'Achievement not found' });
+            }
+        }
+    });
+}
+
+const deleteAchievement = (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    readData(achievementsData, (err, achievements) => {
+        if (err) {
+            res.status(500).json({ message: 'Error reading data' });
+        } else {
+            const index = achievements.findIndex(achievement => achievement.id === id);
+            if (index >= 0) {
+                achievements.splice(index, 1);
+                writeData(achievementsData, achievements, (err) => {
+                    if (err) {
+                        res.status(500).json({ message: 'Error writing data' });
+                    } else {
+                        res.status(200).json({ message: 'Achievement deleted successfully' });
+                    }
+                });
+            } else {
+                res.status(404).json({ message: 'Achievement not found' });
+            }
+        }
+    });
+};
+
 module.exports = {
     createPainting,
     updatePainting,
@@ -262,6 +338,9 @@ module.exports = {
     createPhotograph,
     updatePhotograph,
     deletePhotograph,
+    createAchievement,
+    updateAchievement,
+    deleteAchievement,
     uploadPainting,
     uploadPhotograph,
 };
