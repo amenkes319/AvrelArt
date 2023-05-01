@@ -7,6 +7,7 @@ const fsExtra = require('fs-extra');
 const multer = require('multer');
 
 const paintingsData = path.join(__dirname, '..', 'data', 'paintings.json');
+const photographsData = path.join(__dirname, '..', 'data', 'photographs.json');
 
 const paintingsStorage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -24,8 +25,26 @@ const paintingsStorage = multer.diskStorage({
     },
 });
 
+const photographsStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        const photographsDir = path.join(__dirname, '..', 'data', 'photographs');
+        fsExtra.ensureDir(photographsDir, (err) => {
+            if (err) {
+                cb(err);
+            } else {
+                cb(null, photographsDir);
+            }
+        });
+    },
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}-${file.originalname}`);
+    },
+});
+
 
 const uploadPainting = multer({ storage: paintingsStorage });
+const uploadPhotograph = multer({ storage: photographsStorage });
+
 
 const readData = (dataPath, callback) => {
     fsExtra.readJson(dataPath, (err, data) => {
@@ -153,9 +172,96 @@ const deletePainting = (req, res) => {
     });
 };
 
+const createPhotograph = (req, res) => {
+    readData(photographsData, (err, photographs) => {
+        if (err) {
+            res.status(500).json({ message: 'Error reading data' });
+        } else {
+            photograph = JSON.parse(req.body.data);
+            const newPhotograph = new Photograph(
+                getNextId(photographs),
+                req.file.filename,
+                photograph.title,
+                photograph.description,
+                photograph.type,
+            );
+            photographs.push(newPhotograph);
+            writeData(photographsData, photographs, (err) => {
+                if (err) {
+                    res.status(500).json({ message: 'Error writing data' });
+                } else {
+                    res.status(201).json(newPhotograph);
+                }
+            });
+        }
+    });
+};
+
+const updatePhotograph = (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    readData(photographsData, (err, photographs) => {
+        if (err) {
+            res.status(500).json({ message: 'Error reading data' });
+        } else {
+            const index = photographs.findIndex(photograph => photograph.id === id);
+            if (index >= 0) {
+                const updatedPhotograph = new Photograph(
+                    id,
+                    photographs[index].filename,
+                    req.body.title,
+                    req.body.description,
+                    req.body.type,
+                );
+                photographs[index] = updatedPhotograph;
+                writeData(photographsData, photographs, (err) => {
+                    if (err) {
+                        res.status(500).json({ message: 'Error writing data' });
+                    } else {
+                        res.status(200).json(updatedPhotograph);
+                    }
+                });
+            } else {
+                res.status(404).json({ message: 'Photograph not found' });
+            }
+        }
+    });
+};
+
+const deletePhotograph = (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    readData(photographsData, (err, photographs) => {
+        if (err) {
+            res.status(500).json({ message: 'Error reading data' });
+        } else {
+            const index = photographs.findIndex(photograph => photograph.id === id);
+            if (index >= 0) {
+                fs.unlink(path.join(__dirname, '..', 'data', 'photographs', photographs[index].filename), (err) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                });
+                photographs.splice(index, 1);
+                writeData(photographsData, photographs, (err) => {
+                    if (err) {
+                        res.status(500).json({ message: 'Error writing data' });
+                    } else {
+                        res.status(200).json({ message: 'Photograph deleted successfully' });
+                    }
+                });
+            } else {
+                res.status(404).json({ message: 'Photograph not found' });
+            }
+        }
+    });
+};
+
 module.exports = {
     createPainting,
     updatePainting,
     deletePainting,
+    createPhotograph,
+    updatePhotograph,
+    deletePhotograph,
     uploadPainting,
+    uploadPhotograph,
 };

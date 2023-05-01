@@ -9,4 +9,8 @@ router.post('/paintings', isAuthenticated, uploadPainting.single('file'), adminC
 router.put('/paintings/:id', isAuthenticated, adminController.updatePainting);
 router.delete('/paintings/:id', isAuthenticated, adminController.deletePainting);
 
+router.post('/photographs', isAuthenticated, uploadPhotograph.single('file'), adminController.createPhotograph);
+router.put('/photographs/:id', isAuthenticated, adminController.updatePhotograph);
+router.delete('/photographs/:id', isAuthenticated, adminController.deletePhotograph);
+
 module.exports = router;
