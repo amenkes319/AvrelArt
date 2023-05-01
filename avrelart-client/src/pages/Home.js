@@ -1,16 +1,16 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import './Home.css';
 
 const Home = () => {
     return (
-        <div>
-            <section className="hero">
-                <img src="logo192.png" alt="Highlighted Painting" className="hero-image" />
-            </section>
+        <div className="home">
             <section className="welcome">
-                <h1>Welcome to Avrel Art Studio</h1>
-                <p>"I dream of painting and then I paint my dream" - Vincent van Gogh</p>
+                <div className="welcome-content">
+                    <h1>AVREL ART</h1>
+                    <h2>Welcome to Avrel Art Studio</h2>
+                    <p>"I dream of painting and then I paint my dream" - Vincent van Gogh</p>
+                </div>
+                <img src="eruption.png" alt="Featured Painting" className="featured-image" />
             </section>
         </div>
     );

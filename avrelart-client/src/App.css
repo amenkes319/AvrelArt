@@ -1,0 +1,53 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    min-width: 200px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #e0421d;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.0rem;
+    color: #333;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+p {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 900px) {
+    h1 {
+        font-size: 2.0rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.0rem;
+        color: #333;
+    }
+}
