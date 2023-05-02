@@ -1,11 +1,11 @@
 class Painting {
     static Type = {
-        Landscape: 'landscape',
-        Abstract: 'abstract',
-        WorkOnPaper: 'workonpaper',
+        Landscape: 'landscapes',
+        Abstract: 'abstracts',
+        WorkOnPaper: 'worksonpaper',
         ItalySeries: 'italyseries',
         UnprecedentedTimes: 'unprecedentedtimes',
-        Assemblage: 'assemblage',
+        Assemblage: 'assemblages',
     };
 
     constructor(id, filename, title, description, medium, size, price, type) {

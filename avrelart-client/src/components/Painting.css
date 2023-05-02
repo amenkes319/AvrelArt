@@ -1,0 +1,62 @@
+.painting {
+    display: flex;
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin: 20px;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.painting-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 20px;
+    max-width: 700px;
+}
+
+.painting-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    width: 400px;
+}
+
+.painting-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.painting-description {
+    font-size: 18px;
+    margin: 0;
+}
+
+.painting-medium,
+.painting-size,
+.painting-price {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Mobile view */
+@media screen and (max-width: 768px) {
+    .painting {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .painting-image {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .painting-info {
+        width: 100%;
+        text-align: center;
+    }
+}

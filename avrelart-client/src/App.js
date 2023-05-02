@@ -2,14 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import LandscapesPaintings from './pages/paintings/Landscapes';
-import Abstracts from './pages/paintings/Abstracts';
-import WorksOnPaper from './pages/paintings/WorksOnPaper';
-import ItalySeries from './pages/paintings/ItalySeries';
-import UnprecedentedTimes from './pages/paintings/UnprecedentedTimes';
-import Assemblages from './pages/paintings/Assemblages';
-import LandscapesPhotographs from './pages/photographs/Landscapes';
-import Portraits from './pages/photographs/Portraits';
+import Paintings from './pages/Paintings';
+import Photography from './pages/Photography';
 import Exhibitions from './pages/Exhibitions';
 import AwardsAndPublications from './pages/Awards';
 import Admin from './pages/Admin';
@@ -24,14 +18,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/paintings/landscapes" element={<LandscapesPaintings />} />
-        <Route path="/paintings/abstracts" element={<Abstracts />} />
-        <Route path="/paintings/worksonpaper" element={<WorksOnPaper />} />
-        <Route path="/paintings/italyseries" element={<ItalySeries />} />
-        <Route path="/paintings/unprecedentedtimes" element={<UnprecedentedTimes />} />
-        <Route path="/paintings/assemblages" element={<Assemblages />} />
-        <Route path="/photographs/landscapes" element={<LandscapesPhotographs />} />
-        <Route path="/photographs/portraits" element={<Portraits />} />
+        <Route path="/paintings/landscapes" element={<Paintings />} />
+        <Route path="/paintings/abstracts" element={<Paintings />} />
+        <Route path="/paintings/worksonpaper" element={<Paintings />} />
+        <Route path="/paintings/italyseries" element={<Paintings />} />
+        <Route path="/paintings/unprecedentedtimes" element={<Paintings />} />
+        <Route path="/paintings/assemblages" element={<Paintings />} />
+        <Route path="/photographs/landscapes" element={<Photography />} />
+        <Route path="/photographs/portraits" element={<Photography />} />
         <Route path="/exhibitions" element={<Exhibitions />} />
         <Route path="/awards-and-publications" element={<AwardsAndPublications />} />
         <Route path="/admin" element={<Admin />} />

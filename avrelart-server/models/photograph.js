@@ -1,7 +1,7 @@
 class Photograph {
     static Type = {
-        Landscape: 'landscape',
-        Portrait: 'portrait',
+        Landscape: 'landscapes',
+        Portrait: 'portraits',
     }
 
     constructor(id, filename, title, description, type) {
