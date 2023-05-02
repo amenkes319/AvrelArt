@@ -18,6 +18,10 @@
   width: 90%;
 }
 
+.welcome-content p {
+  font-style: italic;
+}
+
 .featured-image {
   width: 100%;
   max-width: 800px;
