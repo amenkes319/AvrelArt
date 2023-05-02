@@ -1,12 +1,12 @@
 // Painting.js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Painting.css';
 
 const Painting = ({ painting }) => {
   return (
     <div className="painting">
       <img
-        src={`http://localhost:3001/images/${painting.filename}`}
+        src={`http://localhost:3001/api/paintings/images/${painting.filename}`}
         alt={painting.title}
         className="painting-image"
       />

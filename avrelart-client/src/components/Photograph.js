@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import './Photograph.css';
 
-function Photograph() {
+const Photograph = ({ photograph }) => {
   return (
-    <div>Photograph</div>
-  )
-}
+    <div className="photograph">
+      <img src={`http://localhost:3001/api/photographs/images/${photograph.filename}`} alt={photograph.title} className="photograph-image" />
+      <div className="photograph-info">
+        <h3 className="photograph-title">{photograph.title}</h3>
+        <p className="photograph-description">{photograph.description}</p>
+      </div>
+    </div>
+  );
+};
 
-export default Photograph
+export default Photograph;

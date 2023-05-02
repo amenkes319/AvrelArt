@@ -16,7 +16,8 @@ app.use('/api/paintings', paintingsRoutes);
 app.use('/api/photographs', photographsRoutes);
 app.use('/api/achievements', achievementsRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/images', express.static('data/paintings'));
+app.use('/api/paintings/images', express.static('data/paintings'));
+app.use('/api/photographs/images', express.static('data/photographs'));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
