@@ -1,0 +1,96 @@
+/* About styles */
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pictures-and-quotes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 2rem;
+    max-width: 1200px;
+    width: 90%;
+}
+
+.picture-quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.artist-picture {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+blockquote {
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #333;
+    text-align: center;
+    max-width: 300px;
+}
+
+.artist-statement,
+.artist-bio {
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 2rem;
+    max-width: 1200px;
+    width: 90%;
+}
+
+@media screen and (max-width: 900px) {
+    .pictures-and-quotes {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Artist statement and bio styles */
+.artist-statement h2,
+.artist-bio h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.artist-statement p,
+.artist-bio p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 900px) {
+
+    .artist-statement,
+    .artist-bio {
+        width: 100%;
+    }
+
+    .pictures-and-quotes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .picture-quote {
+        margin-bottom: 3rem;
+    }
+}
