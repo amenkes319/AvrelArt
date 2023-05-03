@@ -1,0 +1,22 @@
+.footer {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  bottom: 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-container p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #777;
+}

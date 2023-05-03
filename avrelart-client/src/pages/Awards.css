@@ -1,0 +1,16 @@
+.awards,
+.publications {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+@media screen and (max-width: 768px) {
+    .awards,
+    .publications {
+        padding: 20px;
+    }
+}

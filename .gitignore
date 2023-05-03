@@ -54,3 +54,6 @@ yarn-error.log*
 # Ignore any OS-specific files
 .DS_Store
 Thumbs.db
+
+# Ignore data files in server
+/avrelart-server/data
