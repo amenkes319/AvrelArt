@@ -1,8 +1,8 @@
 class Achievement {
     static Type = {
-        Exhibition: 'exhibition',
-        Award: 'award',
-        Publication: 'publication',
+        Exhibition: 'exhibitions',
+        Award: 'awards',
+        Publication: 'publications',
     };
 
     constructor(id, title, description, type) {

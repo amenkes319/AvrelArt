@@ -27,7 +27,7 @@ function App() {
         <Route path="/photographs/landscapes" element={<Photography />} />
         <Route path="/photographs/portraits" element={<Photography />} />
         <Route path="/exhibitions" element={<Exhibitions />} />
-        <Route path="/awards-and-publications" element={<AwardsAndPublications />} />
+        <Route path="/awards-publications" element={<AwardsAndPublications />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />

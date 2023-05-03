@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import './Achievement.css';
 
-function Achievement() {
+const Achievement = ({ achievement }) => {
   return (
-    <div>Achievement</div>
-  )
-}
+    <div className="achievement">
+      <h3>{achievement.title}</h3>
+      <p>{achievement.description}</p>
+    </div>
+  );
+};
 
-export default Achievement
+export default Achievement;
