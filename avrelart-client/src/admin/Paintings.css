@@ -1,0 +1,107 @@
+.paintings-admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paintings-admin-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.paintings-admin-form label,
+.paintings-admin-form input,
+.paintings-admin-form textarea,
+.paintings-admin-form button {
+  margin-bottom: 10px;
+}
+
+.paintings-admin-form textarea {
+  resize: none;
+}
+
+.paintings-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+.painting-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.painting-item-image {
+  height: 150px;
+  margin-bottom: 1rem;
+}
+
+.painting-item-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.painting-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.painting-item-info label {
+  font-weight: bold;
+}
+
+.painting-item-info input,
+.painting-item-info textarea,
+.painting-item-info select {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.painting-item-info textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+.painting-item button {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  padding: 8px 12px;
+  background-color: #e0421d;
+  color: #fff;
+  border: 1px solid #e0421d;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.painting-item button:hover {
+  background-color: #ed6240;
+  color: #fff;
+  border-color: #ed6240;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+@media (max-width: 900px) {
+  .paintings-admin h3 {
+    font-size: 1.2rem;
+  }
+
+  .painting-item {
+    width: 100%;
+  }
+}
+

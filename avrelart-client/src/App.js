@@ -6,7 +6,7 @@ import Paintings from './pages/Paintings';
 import Photography from './pages/Photography';
 import Exhibitions from './pages/Exhibitions';
 import AwardsAndPublications from './pages/Awards';
-import Admin from './pages/Admin';
+import Admin from './admin/Admin';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './App.css';
